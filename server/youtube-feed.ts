@@ -1,6 +1,7 @@
 import type { Plugin, Connect } from 'vite'
-import { approvedVideoIds, channelHandle, channelId, officialVideos } from '../apps/youtube/channel.ts'
+import { approvedVideoIds, channelHandle, channelId, officialVideos, staticFeedPath } from '../apps/youtube/channel.ts'
 import type { ChannelList } from '../apps/youtube/channel.ts'
+import { snapshot } from '../apps/youtube/snapshot.ts'
 
 interface PublicVideo {
   id?: string
@@ -76,5 +77,19 @@ export function youtubeFeedPlugin(apiKey?: string): Plugin {
     name: 'playground-youtube-feed',
     configureServer(server) { server.middlewares.use(middleware) },
     configurePreviewServer(server) { server.middlewares.use(middleware) },
+  }
+}
+
+export function youtubeStaticFeedPlugin(apiKey?: string): Plugin {
+  return {
+    name: 'playground-youtube-static-feed',
+    apply: 'build',
+    async generateBundle() {
+      const list = await fetchChannelList(apiKey).catch(() => {
+        this.warn('Could not refresh the YouTube catalogue. Using the checked-in snapshot with its original timestamp.')
+        return { fetchedAt: snapshot.fetchedAt, videos: officialVideos(snapshot.videos) }
+      })
+      this.emitFile({ type: 'asset', fileName: staticFeedPath, source: JSON.stringify(list) })
+    },
   }
 }

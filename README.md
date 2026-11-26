@@ -13,7 +13,7 @@ npm run dev
 
 호스트 PC는 `https://localhost:5173`, 같은 네트워크의 다른 PC는 Vite가 표시하는 `Network` 주소로 접속합니다. 이 주소의 포트는 `5173`입니다. 빌드 명령은 `npm run build`이며 결과는 `dist/`에 생성됩니다.
 
-### HTTPS와 카메라 권한
+### 로컬 HTTPS와 카메라 권한
 
 - 새 호스트나 IP 변경 시 mkcert를 설치한 뒤 `npm run cert:setup`을 실행합니다. 현재 네트워크 인터페이스의 IPv4, `localhost`, `127.0.0.1`, `::1`이 포함됩니다. 인터페이스에 표시되지 않는 IP를 추가하려면 `npm run cert:setup -- 192.168.1.20`처럼 인수로 넘깁니다. 재발급 후에는 Vite를 다시 실행합니다. [mkcert 설치 방법](https://github.com/FiloSottile/mkcert#installation)
 - 인증서 경고를 해결하려면 접속하는 PC에서 이 프로젝트의 `.certs/ca/rootCA.pem`을 신뢰하는 루트 인증서로 등록합니다. macOS에서는 Keychain Access, Windows에서는 현재 사용자의 신뢰할 수 있는 루트 인증 기관 저장소를 사용합니다. 다른 PC에 전달하는 파일은 `rootCA.pem` 한 개입니다. `rootCA-key.pem`과 `desktop-key.pem`은 발급 PC 내부에 보관합니다. [mkcert의 다른 PC 신뢰 설정](https://github.com/FiloSottile/mkcert#installing-the-ca-on-other-systems)
@@ -25,6 +25,18 @@ npm run dev
 
 - HTTPS 주소를 다시 열어 브라우저의 사이트 카메라 권한과 OS의 브라우저 카메라 권한을 허용합니다. 데스크톱 메뉴바의 카메라 아이콘에서 연결을 다시 시도할 수 있습니다. 다른 PC에서 주소 자체가 열리지 않으면 호스트 방화벽의 5173 포트 접근과 같은 네트워크 연결을 확인합니다. [Vite 네트워크 옵션](https://vite.dev/config/server-options.html#server-host), [브라우저 카메라 접근 요건](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getUserMedia)
 - 브라우저가 카메라 이름을 공개하면 FaceTime HD Camera 등 내장 장치를 우선하고 iPhone 및 Continuity Camera를 제외합니다. 최초 허용 전에는 장치 이름이 가려질 수 있어, 손 추적과 앱에 스트림을 연결하기 전에 장치 이름을 다시 확인합니다. iPhone을 장치 목록에서 제외하려면 iPhone 설정의 일반 → AirPlay 및 연속성에서 연속성 카메라를 끕니다. [Apple 연속성 카메라 안내](https://support.apple.com/102546)
+
+## GitHub Pages 배포
+
+1. [저장소의 Pages 설정](https://github.com/2soo1207-bit/Interactive_Desktop/settings/pages)에서 **Settings → Pages → Build and deployment → Source → GitHub Actions**를 선택합니다.
+2. 배포 설정을 커밋하고 `main`에 푸시합니다. **Actions → Deploy to GitHub Pages**에서 실행 결과를 확인합니다. 푸시한 뒤에 Pages를 활성화했다면 이 화면의 **Run workflow**에서 `main`을 선택합니다.
+3. 배포가 완료되면 [Interactive Desktop 배포 주소](https://2soo1207-bit.github.io/Interactive_Desktop/)로 접속하고 브라우저에서 카메라를 허용합니다. GitHub Free에서는 공개 저장소에 Pages를 사용할 수 있고, 비공개 저장소는 지원 요금제가 필요합니다. [GitHub Pages 설정 안내](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages)
+
+`npm run build:pages`로 Pages용 빌드를 로컬에서도 확인할 수 있습니다. 워크플로는 Pages 설정에서 배포 주소의 하위 경로를 읽고 `dist/`를 게시합니다. 기본 로컬 경로는 `/Interactive_Desktop/`이며 `PAGES_BASE_PATH`로 재정의할 수 있습니다. 개발용 HTTPS 인증서 없이 빌드되며 배포 환경은 GitHub의 HTTPS를 사용합니다.
+
+YouTube 목록은 배포 때 받아 정적 JSON으로 포함하고 매주 월요일에 갱신합니다. 공개 저장소의 활동이 60일 동안 없으면 예약 실행이 중지될 수 있으며 **Actions**에서 다시 활성화할 수 있습니다. 선택 사항인 `YOUTUBE_API_KEY`는 **Settings → Secrets and variables → Actions → Secrets**에 등록하면 빌드에서만 사용됩니다. 기본값은 키가 필요 없는 oEmbed입니다. [GitHub Actions 예약 실행 안내](https://docs.github.com/en/actions/reference/workflows-and-actions/events-that-trigger-workflows#schedule)
+
+공유 MEMO를 사용하려면 위 Actions 설정의 **Variables**에 `VITE_SUPABASE_URL`과 `VITE_SUPABASE_PUBLISHABLE_KEY`를 등록하고 다시 배포합니다. 두 변수 없이도 이 브라우저의 방명록은 IndexedDB에 저장됩니다. 기존 영상 목록 서버를 이용하려면 같은 곳에 `VITE_YOUTUBE_FEED_URL`을 등록합니다.
 
 ## 폴더 구성
 
@@ -71,7 +83,7 @@ Finder 창의 제목을 누르면 폴더를 전환할 수 있습니다. 탐색 �
 
 앱을 열면 플레이어가 화면에 들어오는 즉시 첫 영상을 소리와 함께 재생합니다. 브라우저가 차단하면 음소거로 재시도합니다. 음소거로 시작한 경우에는 **소리 켜기**, 자동재생이 시작되지 않은 경우에는 **소리와 함께 재생**을 사용할 수 있습니다. 개발자 도구 콘솔의 `[3CE YouTube]` 메시지에서 재생 상태, 음소거, 음량, 차단과 임베드 오류를 확인할 수 있습니다. [IFrame Player API](https://developers.google.com/youtube/iframe_api_reference#Events), [YouTube 임베드 정책](https://developers.google.com/youtube/terms/required-minimum-functionality)
 
-정적 호스팅에서 공식 메타데이터를 갱신하려면 서버의 `fetchChannelList()`를 호출하는 GET 경로를 연결합니다. 응답은 `{ fetchedAt, videos: [{ id, channelId, title }] }` 형태입니다. 경로가 기본 주소와 다르면 빌드 전에 `VITE_YOUTUBE_FEED_URL`을 지정합니다. 확인한 지 30일 이내인 저장 목록이 있으면 첫 영상을 먼저 준비하고 목록 갱신은 백그라운드에서 진행합니다.
+GitHub Pages 빌드는 검증한 영상 목록을 `api/3ce-videos.json`으로 게시합니다. 별도 영상 목록 서버를 사용하려면 서버의 `fetchChannelList()`를 호출하는 GET 경로를 연결합니다. 응답은 `{ fetchedAt, videos: [{ id, channelId, title }] }` 형태입니다. 경로가 기본 주소와 다르면 빌드 전에 `VITE_YOUTUBE_FEED_URL`을 지정합니다. 확인한 지 30일 이내인 저장 목록이 있으면 첫 영상을 먼저 준비하고 목록 갱신은 백그라운드에서 진행합니다.
 
 ## MEMO 방명록 설정
 

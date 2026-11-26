@@ -1,7 +1,7 @@
 import './style.css'
 import { connectDesktop } from '../shared/desktop-host.ts'
 import { icon } from '../../src/ui/icons.ts'
-import { channelHandle, officialVideos } from './channel.ts'
+import { channelHandle, isFreshChannelList, officialVideos, staticFeedPath } from './channel.ts'
 import type { ChannelVideo } from './channel.ts'
 import { snapshot } from './snapshot.ts'
 import { mountVideoPlayer } from './player.ts'
@@ -81,8 +81,9 @@ const feedStatus = app.querySelector<HTMLElement>('[data-feed-status]')!
 const watch = app.querySelector<HTMLAnchorElement>('[data-watch]')!
 const lifetime = new AbortController()
 const { signal } = lifetime
-const endpoint = import.meta.env.VITE_YOUTUBE_FEED_URL || '../../api/3ce-videos'
-const storedListMaxAge = 30 * 24 * 60 * 60 * 1000
+const useStaticFeed = import.meta.env.MODE === 'pages' && !import.meta.env.VITE_YOUTUBE_FEED_URL
+const endpoint = import.meta.env.VITE_YOUTUBE_FEED_URL ||
+  (useStaticFeed ? `${import.meta.env.BASE_URL}${staticFeedPath}` : '../../api/3ce-videos')
 let disposePlayer: (() => void) | undefined
 let selectedVideoId: string | undefined
 let libraryScroll = 0
@@ -199,8 +200,7 @@ searchInput.addEventListener('search', () => {
 }, { signal })
 
 function savedVideos() {
-  const age = Date.now() - Date.parse(snapshot.fetchedAt)
-  return age < storedListMaxAge ? officialVideos(snapshot.videos) : []
+  return isFreshChannelList(snapshot.fetchedAt) ? officialVideos(snapshot.videos) : []
 }
 
 async function loadVideos() {
@@ -214,6 +214,7 @@ async function loadVideos() {
     if (!response.ok) throw new Error('Feed unavailable')
     const data = await response.json()
     if (signal.aborted) return
+    if (useStaticFeed && !isFreshChannelList(data?.fetchedAt)) throw new Error('Static feed metadata expired')
     const videos = officialVideos(data?.videos)
     renderVideos(videos)
     feedStatus.textContent = videos.length ? '' : '설정한 가로형 영상 중 재생할 수 있는 3CE 영상이 없습니다.'

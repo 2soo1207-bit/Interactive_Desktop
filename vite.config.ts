@@ -1,13 +1,15 @@
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
 import { defineConfig, loadEnv } from 'vite'
-import { youtubeFeedPlugin } from './server/youtube-feed.ts'
+import { youtubeFeedPlugin, youtubeStaticFeedPlugin } from './server/youtube-feed.ts'
 
 export default defineConfig(({ command, isPreview, mode }) => {
   const key = new URL('./.certs/desktop-key.pem', import.meta.url)
   const cert = new URL('./.certs/desktop.pem', import.meta.url)
   const hasCertificate = command === 'serve' && existsSync(key) && existsSync(cert)
-  const youtubeApiKey = loadEnv(mode, process.cwd(), 'YOUTUBE_').YOUTUBE_API_KEY
+  const pagesBuild = mode === 'pages'
+  const pagesBase = (process.env.PAGES_BASE_PATH ?? '/Interactive_Desktop').replace(/\/+$/, '')
+  const youtubeApiKey = process.env.YOUTUBE_API_KEY || loadEnv(mode, process.cwd(), 'YOUTUBE_').YOUTUBE_API_KEY
   const apps = readdirSync(new URL('./apps/', import.meta.url), { withFileTypes: true })
     .filter((entry) => entry.isDirectory())
     .map(({ name }) => new URL(`./apps/${name}/index.html`, import.meta.url))
@@ -18,8 +20,8 @@ export default defineConfig(({ command, isPreview, mode }) => {
   }
 
   return {
-    base: './',
-    plugins: [youtubeFeedPlugin(youtubeApiKey)],
+    base: pagesBuild ? `${pagesBase}/` : './',
+    plugins: [pagesBuild ? youtubeStaticFeedPlugin(youtubeApiKey) : youtubeFeedPlugin(youtubeApiKey)],
     worker: { format: 'es' },
     build: {
       rolldownOptions: {

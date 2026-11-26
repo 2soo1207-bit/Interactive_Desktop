@@ -9,6 +9,7 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && tsc -p apps && vite build",
+    "build:pages": "npm run build -- --mode pages",
     "cert:setup": "node scripts/setup-cert.ts"
   },
   "devDependencies": {
