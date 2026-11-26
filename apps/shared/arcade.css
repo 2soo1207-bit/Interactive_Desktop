@@ -1,0 +1,31 @@
+@import "../../src/ui/typography.css";
+
+:root {
+  --arcade-ink: #282328;
+  --arcade-paper: #f7f1ea;
+  --arcade-surface: #fffaf4;
+  --arcade-line: #47394538;
+  --arcade-accent: #e0ec89;
+  --arcade-accent-hover: #ebf4ab;
+  --arcade-radius: 8px;
+  --arcade-label-spacing: .09em;
+  --arcade-display-spacing: -.075em;
+}
+
+.arcade-primary {
+  min-height: 48px;
+  padding: 12px 18px;
+  border: 1px solid transparent;
+  border-radius: var(--arcade-radius);
+  color: var(--arcade-ink);
+  background: var(--arcade-accent);
+  font-family: var(--font-ui);
+  font-size: .875rem;
+  font-weight: 750;
+  letter-spacing: var(--arcade-label-spacing);
+  transition: background .16s, transform .16s;
+}
+
+.arcade-primary:enabled:hover { background: var(--arcade-accent-hover); transform: translateY(-2px); }
+.arcade-primary:enabled:active { transform: translateY(1px); }
+.arcade-primary:disabled { opacity: .53; }

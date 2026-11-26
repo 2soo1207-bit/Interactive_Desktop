@@ -1,0 +1,6 @@
+Tool: built-in image_gen.imagegen (not CLI); transparent_background: true.
+Output: src/test-2/pillow-tower/assets/showroom-duvet.png
+Scope: neutral silk foreground prop only; never a generated/replaced product.
+
+Exact prompt:
+Use case: product-mockup. Asset type: transparent foreground prop for a luxury beauty product showroom website. Create ONLY a broad low mound of soft pearl-grey silk duvet / puffed satin bedding, horizontally draped with large natural ripples and shallow folds, viewed from slightly above front at product-photography eye level. Empty clear gently cushioned central resting surface for a separate product PNG to be composited later. The duvet spans the full width of a wide 3:1 composition, occupies the lower half, its upper silhouette undulates gently and realistically. Cool warm-grey neutral palette matching #d6d1cd, subtle creamy highlights, believable woven silk sheen, diffuse upper-left studio lighting, delicate self shadows in folds, premium editorial photography, photorealistic fabric material. Transparent background around the duvet. Absolutely no products, packages, triangles, bottles, pillows, objects, logos, lettering, typography, people or furniture. Only low silk bedding fabric, not a full scene or room.

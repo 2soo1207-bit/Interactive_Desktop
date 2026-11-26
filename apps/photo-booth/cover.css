@@ -1,0 +1,127 @@
+/* Only the intro owns this composition; all capture and editing stages stay intact. */
+.pb-app[data-step='start'] {
+  --red: #e0ec89;
+  --ink: #151515;
+  --paper: #eaeae5;
+  --cover-gutter: clamp(24px, 6.8vw, 130px);
+  position: relative;
+  isolation: isolate;
+  min-height: 100svh;
+  padding: 0 var(--cover-gutter);
+  color: #151515;
+  background: #b7b9b5;
+}
+.pb-app[data-step='start'] .pb-header { height: 80px; }
+.pb-app[data-step='start'] .pb-brand { visibility: hidden; }
+.pb-app[data-step='start'] .pb-start {
+  width: 64%;
+  min-height: calc(100svh - 80px);
+  padding: clamp(24px, 4svh, 64px) 0 clamp(48px, 8svh, 110px);
+  align-items: flex-start;
+  justify-content: center;
+}
+.pb-app[data-step='start'] .pb-start h1 {
+  width: max-content;
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(42px, min(11.2vw, 18svh), 208px);
+  font-weight: 850;
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+.pb-app[data-step='start'] .pb-cover-brand {
+  display: flex;
+  align-items: flex-start;
+  gap: .2em;
+  padding: 0;
+  margin: 0 0 .09em -.015em;
+  font-size: 1.28em;
+  line-height: .88;
+  letter-spacing: -.055em;
+}
+.pb-app[data-step='start'] .pb-cover-name {
+  display: block;
+  white-space: nowrap;
+  font-size: 1em;
+  line-height: .94;
+}
+.pb-app[data-step='start'] .pb-title-star {
+  position: static;
+  display: block;
+  flex: none;
+  align-self: center;
+  width: .56em;
+  height: .56em;
+  margin: 0;
+  color: #e0ec89;
+  font-size: 1em;
+  overflow: visible;
+}
+.pb-app[data-step='start'] .pb-start-button {
+  position: static;
+  align-self: flex-start;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: 1fr;
+  gap: 24px;
+  width: min(100%, 370px);
+  min-width: 0;
+  min-height: 88px;
+  margin-top: clamp(64px, 10svh, 128px);
+  padding: 22px 26px;
+  color: #151515;
+  background: #e0ec89;
+  text-align: left;
+  transition: transform .24s cubic-bezier(.2,.7,.2,1), box-shadow .24s;
+}
+.pb-app[data-step='start'] .pb-start-button > span:first-child {
+  font-size: clamp(17px, 1.5vw, 22px);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -.035em;
+}
+.pb-app[data-step='start'] .pb-start-arrow {
+  grid-column: 2;
+  grid-row: 1;
+  font-size: 32px;
+  line-height: 1;
+}
+.pb-app[data-step='start'] .pb-start-button:disabled { opacity: .75; }
+.pb-app[data-step='start'] .pb-start-button:focus-visible,
+.pb-app[data-step='start'] .pb-back:focus-visible { outline-color: #151515; }
+.pb-app[data-step='start'] .pb-start-button:active:not(:disabled) {
+  transform: translateY(2px) scale(.985);
+  box-shadow: inset 0 0 0 1px #15151524;
+}
+@media (hover: hover) {
+  .pb-app[data-step='start'] .pb-start-button:hover:not(:disabled) {
+    background: #e0ec89;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 0 #151515;
+  }
+  .pb-app[data-step='start'] .pb-start-button:hover:active:not(:disabled) {
+    transform: translateY(2px) scale(.985);
+    box-shadow: none;
+  }
+}
+@media (min-width: 681px) and (max-aspect-ratio: 4/5) {
+  .pb-app[data-step='start'] .pb-start { width: 79%; }
+  .pb-app[data-step='start'] .pb-start h1 { font-size: 13.7vw; }
+  .pb-app[data-step='start'] .pb-start-button { width: min(100%, 390px); min-height: 102px; }
+  .pb-app[data-step='start'] .pb-start-button > span:first-child { font-size: 21px; }
+}
+@media (max-width: 680px) {
+  .pb-app[data-step='start'] { --cover-gutter: clamp(20px, 6.2vw, 36px); }
+  .pb-app[data-step='start'] .pb-header { height: 70px; }
+  .pb-app[data-step='start'] .pb-start {
+    width: 100%;
+    min-height: calc(100svh - 70px);
+    padding: 30px 0 58px;
+  }
+  .pb-app[data-step='start'] .pb-start h1 { font-size: min(17.2vw, 16svh); }
+  .pb-app[data-step='start'] .pb-start-button { width: min(100%, 320px); min-height: 84px; margin-top: 80px; padding: 20px 22px; }
+  .pb-app[data-step='start'] .pb-start-button > span:first-child { font-size: 18px; }
+  .pb-app[data-step='start'] .pb-start-arrow { font-size: 28px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .pb-app[data-step='start'] .pb-start-button { transition: none; }
+}

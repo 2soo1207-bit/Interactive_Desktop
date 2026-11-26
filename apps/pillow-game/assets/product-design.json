@@ -1,0 +1,497 @@
+{
+  "reference": {
+    "bounds": [
+      73,
+      153,
+      1254,
+      1105
+    ],
+    "outer": [
+      [
+        0.979512,
+        0.835142
+      ],
+      [
+        0.994953,
+        0.870416
+      ],
+      [
+        0.999186,
+        0.888713
+      ],
+      [
+        0.999535,
+        0.910363
+      ],
+      [
+        0.99493,
+        0.934838
+      ],
+      [
+        0.981326,
+        0.962297
+      ],
+      [
+        0.965512,
+        0.980647
+      ],
+      [
+        0.946442,
+        0.992
+      ],
+      [
+        0.921279,
+        0.999736
+      ],
+      [
+        0.526186,
+        0.999974
+      ],
+      [
+        0.515442,
+        0.99897
+      ],
+      [
+        0.491279,
+        0.990627
+      ],
+      [
+        0.450558,
+        0.999974
+      ],
+      [
+        0.076047,
+        0.999472
+      ],
+      [
+        0.057372,
+        0.994271
+      ],
+      [
+        0.039791,
+        0.984528
+      ],
+      [
+        0.021093,
+        0.966152
+      ],
+      [
+        0.005558,
+        0.937584
+      ],
+      [
+        0.000256,
+        0.907353
+      ],
+      [
+        0.006256,
+        0.868488
+      ],
+      [
+        0.028163,
+        0.820752
+      ],
+      [
+        0.244837,
+        0.396779
+      ],
+      [
+        0.257814,
+        0.384185
+      ],
+      [
+        0.26,
+        0.367736
+      ],
+      [
+        0.41693,
+        0.057505
+      ],
+      [
+        0.433907,
+        0.030574
+      ],
+      [
+        0.45407,
+        0.013861
+      ],
+      [
+        0.46993,
+        0.005465
+      ],
+      [
+        0.494419,
+        0.000264
+      ],
+      [
+        0.522512,
+        0.004145
+      ],
+      [
+        0.541674,
+        0.012092
+      ],
+      [
+        0.554349,
+        0.020805
+      ],
+      [
+        0.57307,
+        0.042455
+      ],
+      [
+        0.724744,
+        0.338904
+      ],
+      [
+        0.738605,
+        0.369162
+      ],
+      [
+        0.741884,
+        0.383208
+      ],
+      [
+        0.75907,
+        0.405545
+      ],
+      [
+        0.768349,
+        0.411459
+      ],
+      [
+        0.792,
+        0.411274
+      ],
+      [
+        0.821651,
+        0.420304
+      ],
+      [
+        0.840767,
+        0.434904
+      ],
+      [
+        0.859884,
+        0.459406
+      ],
+      [
+        0.870651,
+        0.486785
+      ],
+      [
+        0.874674,
+        0.514693
+      ],
+      [
+        0.86993,
+        0.542099
+      ],
+      [
+        0.85393,
+        0.576686
+      ],
+      [
+        0.853535,
+        0.588937
+      ]
+    ],
+    "holes": [
+      [
+        [
+          0.792279,
+          0.44705
+        ],
+        [
+          0.779884,
+          0.446521
+        ],
+        [
+          0.767279,
+          0.45196
+        ],
+        [
+          0.762791,
+          0.459855
+        ],
+        [
+          0.763884,
+          0.472686
+        ],
+        [
+          0.79693,
+          0.514376
+        ],
+        [
+          0.813047,
+          0.542284
+        ],
+        [
+          0.820233,
+          0.546746
+        ],
+        [
+          0.826698,
+          0.545769
+        ],
+        [
+          0.83414,
+          0.537769
+        ],
+        [
+          0.839209,
+          0.523723
+        ],
+        [
+          0.839884,
+          0.505215
+        ],
+        [
+          0.837186,
+          0.491776
+        ],
+        [
+          0.831674,
+          0.478231
+        ],
+        [
+          0.821279,
+          0.46363
+        ],
+        [
+          0.809488,
+          0.453914
+        ]
+      ]
+    ],
+    "source": "public/images/제품_001.png",
+    "product": "public/products/product-038.png",
+    "sha256": "8a14b3561297e534dbe975f41dc2a2f7fbc1b716d290b6a2b8e9dfab070b9e56",
+    "width": 1400,
+    "height": 1400
+  },
+  "shades": [
+    {
+      "id": 0,
+      "name": "Rest Mode",
+      "source": "public/products/product-003.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_00_Rest Mode (1).png",
+      "file": "product-front-00.png",
+      "sha256": "361137356c1902fa6cff9e2235b45f09e8fa535b6428520ccced30b500dc1df2",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#c8def0"
+    },
+    {
+      "id": 1,
+      "name": "Soft Nap",
+      "source": "public/products/product-005.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_01_Soft Nap (1).png",
+      "file": "product-front-01.png",
+      "sha256": "f99ae6f325ae70e21ea3c2746c5d43e49741e390ed4245ac7e2a4f78996c7d38",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#dc9eaa"
+    },
+    {
+      "id": 2,
+      "name": "Half Awake",
+      "source": "public/products/product-007.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_02_Half Awake (1).png",
+      "file": "product-front-02.png",
+      "sha256": "86e95f039df2c022c60d27e69375a634f7b132bc00a16d3972481ac7a9252d2b",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#e59d8f"
+    },
+    {
+      "id": 3,
+      "name": "Daydream",
+      "source": "public/products/product-009.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_03_Daydream (1).png",
+      "file": "product-front-03.png",
+      "sha256": "f81362472a4b92527fa0923a0967a09ac7a7eab3c644565b11650654ed41b3db",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#ef97b3"
+    },
+    {
+      "id": 4,
+      "name": "Tucked In",
+      "source": "public/products/product-011.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_04_Tucked In (1).png",
+      "file": "product-front-04.png",
+      "sha256": "f1c7dca2eef4592b65f9ee6bfb2648f14f0fb4180ad9c9508184d2589b3a21bb",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#cc6273"
+    },
+    {
+      "id": 5,
+      "name": "Maybe Later",
+      "source": "public/products/product-013.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_05_Maybe Later (1).png",
+      "file": "product-front-05.png",
+      "sha256": "2a8e6e3a21044e9a52e5eb8f621720c309f859e66678c3a6bfd9cf888b6a7fe2",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#ce4f5b"
+    },
+    {
+      "id": 6,
+      "name": "Pillow Fight",
+      "source": "public/products/product-015.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_06_Pillow Fight (1).png",
+      "file": "product-front-06.png",
+      "sha256": "04b106e12150ed2044acbae941d2a063b4350467e7fc7eaca335888f7b4ca2e5",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#bb6f78"
+    },
+    {
+      "id": 7,
+      "name": "Beauty Sleep",
+      "source": "public/products/product-017.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_07_Beauty Sleep (1).png",
+      "file": "product-front-07.png",
+      "sha256": "861bdfb922a16c8a0e9ea1412e7752d35b28e5bbb0cc331e86c0edc127a12c2f",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#d493a8"
+    },
+    {
+      "id": 8,
+      "name": "Snoozy Whisper",
+      "source": "public/products/product-019.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_08_Snoozy Whisper (1).png",
+      "file": "product-front-08.png",
+      "sha256": "56e7fb2965a9c82b18658db118dc88acabc9a402cae247b7d13198ccf9c2a317",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#d89193"
+    },
+    {
+      "id": 9,
+      "name": "Out Late",
+      "source": "public/products/product-021.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_09_Out Late (1).png",
+      "file": "product-front-09.png",
+      "sha256": "40d40443174a7fbc66db474130f6f8f3992155f0a1097133d7edafbea809d095",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#c86c70"
+    },
+    {
+      "id": 10,
+      "name": "Sun-Drenched",
+      "source": "public/products/product-023.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_10_Sun-Drenched (1).png",
+      "file": "product-front-10.png",
+      "sha256": "b8463f018d8ca159af0eb5b38d85ae374064777087f7518c39deb38f7d266b3a",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#f6e9de"
+    },
+    {
+      "id": 11,
+      "name": "In Hiding",
+      "source": "public/products/product-025.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_11_In Hiding (1).png",
+      "file": "product-front-11.png",
+      "sha256": "28de04db39810c176a2cd125269f3a442b632c0c161d6d59545a854547edc5ca",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#e18589"
+    },
+    {
+      "id": 12,
+      "name": "Dream On",
+      "source": "public/products/product-027.png",
+      "original": "public/images/PACKSHOT/Lip Pillow_Packshot_12_Dream On (1).png",
+      "file": "product-front-12.png",
+      "sha256": "4ef4bf2c3696f0622f775f6f1ced66fd7d4f27ecbd934aa794e204f976aa439a",
+      "width": 1400,
+      "height": 1400,
+      "bounds": [
+        142,
+        208,
+        1116,
+        984
+      ],
+      "color": "#e684a0"
+    }
+  ],
+  "notes": "Textures are byte-for-byte copies from public/products. Bounds and silhouette from alpha; colors used only for unphotographed side/back fabric."
+}
